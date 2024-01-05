@@ -11,4 +11,7 @@ ansible all -m apt -a update_cashe=true --become --ask-become-pass
 
 
 #install vim-nox on all servers with apt module
-ansible all -m apt -a name=vim-nox --become --ask-become-pass 
+ansible all -m apt -a name=vim-nox --become --ask-become-pass
+
+#if you want update the package in lateast version 
+ansible all -m apt -a "name=snapd state=latest" --become --ask-become-pass 
