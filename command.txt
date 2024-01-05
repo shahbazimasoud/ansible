@@ -1,0 +1,9 @@
+
+
+#show all info about all hosts 
+ansible all -m gather_facts 
+
+#show limited info about a host
+ansible all -m gather_facts --limit 192.168.10.10
+
+
