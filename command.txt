@@ -6,4 +6,6 @@ ansible all -m gather_facts
 #show limited info about a host
 ansible all -m gather_facts --limit 192.168.10.10
 
+#for all module which need sudo for give password you can use follow commands
+ansible all -m apt -a update_cashe=true --become --ask-become-pass
 
