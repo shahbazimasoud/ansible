@@ -22,4 +22,6 @@ ansible all -m apt -a "upgrade=dist" --become --ask-become-pass
 # run ansible playbook
 ansible-playbook --ask-become-pass install_apache.yml
 
+# we can use this --> ansible all -m gather_factis --limit IP_ADDRESS and find Variable for use in "when" in yaml conditions 
+
  
