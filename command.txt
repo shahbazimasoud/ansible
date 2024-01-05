@@ -24,4 +24,5 @@ ansible-playbook --ask-become-pass install_apache.yml
 
 # we can use this --> ansible all -m gather_factis --limit IP_ADDRESS and find Variable for use in "when" in yaml conditions 
 
+# package is a module in andible which you can define variable in yaml and set value for this in inventory file for each distributed system
  
