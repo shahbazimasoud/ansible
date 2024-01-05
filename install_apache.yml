@@ -4,44 +4,21 @@
    become: true
    tasks:
 
-   - name: update repository index
+   - name: install apache2 and php package
      apt:
-       update_cache: yes
-     when: ansible_distribution == "Ubuntu"  
-
-   - name: install apache2 package
-     apt:
-       name: apache2
+       name: 
+         - apache2
+         - libapache2-mod-php
        state: latest
+       update_cache: yes
      when: ansible_distribution == "Ubuntu" 
 
-   - name: app php support for apache
+
+   - name: install apache2 and php  package
      apt:
-       name: libapache2-mod-php
+       name:
+         - httpd
+         - php
        state: latest
-     when: ansible_distribution == "Ubuntu" 
-        
-
-
-
-
-         - hosts: all
-   become: true
-   tasks:
-
-   - name: update repository index on CentOS
-     apt:
        update_cache: yes
      when: ansible_distribution == "CentOs"
-
-   - name: install apache2 package
-     apt:
-       name: httpd
-       state: latest
-     when: ansible_distribution == "CentOs"
-
-   - name: app php support for apache
-     apt:
-       name: php
-       state: latest
-     when: ansible_distribution == "CentOS"
