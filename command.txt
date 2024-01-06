@@ -29,4 +29,7 @@ ansible-playbook --ask-become-pass install_apache.yml
 # show tag list of 
 ansible-playbook --list-tags site.yml
 
+# only ubuntu and centos can be run
+ansible -m shell -a "/path/to/ansible/playbook.yml" -i /path/to/inventory -l ubuntu,centos
+
 
