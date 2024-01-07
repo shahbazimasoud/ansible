@@ -1,9 +1,10 @@
 ---
+
 - hosts: workstations
   become: true
   tasks:
 
-  - name: install unzip 
+  - name: install unzip
     package:
       name: unzip
 
@@ -15,4 +16,3 @@
       mode: 0755
       owner: root
       group: root
-    

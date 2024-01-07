@@ -3,3 +3,6 @@
 
 [db_servers]  
 172.16.50.62
+
+[workstations]
+172.16.16.16
