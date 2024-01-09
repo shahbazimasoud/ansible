@@ -2,14 +2,22 @@
 - hosts: workstations
   become: true
   tasks:
-    - name: " Start Httpd Service ( CentOs )"
+    - name: change E-Mail Address for admin
+      tags: apache,httpd,centos
+      lineinfile:
+        path: /etc/httpd/conf/httpd.conf
+        regexp: '^ServerAdmin'
+        line: ServerAdmin Masoud@Email.com
+      when: ansible_distribution = "CentOs"  
+      register: httpd
+
+
+    - name: " restart Httpd Service ( CentOs )"
       service: 
         name: httpd
-        state: started
+        state: restarted
         enabled: yes
       when: 
-        - ansible_distribution == "centos"
-        - httpd.service.state != "running"
-        - httpd.service.enabled == false
+        - httpd.change 
 
 
